@@ -1,0 +1,8 @@
+cmake_minimum_required( VERSION 3.0 )
+project( exe )
+set( CMAKE_CXX_COMPILER "clang++" )
+set( CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++" )
+set( EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR} )
+ADD_DEFINITIONS( -DENABLE_DEBUG -g )
+add_executable( exe game.hpp resource_manager.hpp shader.hpp texture.hpp game.cpp resource_manager.cpp shader.cpp texture.cpp sprite_renderer.hpp sprite_renderer.cpp game_object.hpp game_object.cpp ball_object.cpp ball_object.hpp particle_generator.hpp particle_generator.cpp main.cpp )
+target_link_libraries( exe glfw GLEW GL SOIL )
